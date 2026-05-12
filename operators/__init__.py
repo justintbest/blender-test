@@ -1,4 +1,7 @@
-from .collections import OBJECT_OT_move_to_active_collection
+from .collections import (
+    OBJECT_OT_move_to_active_collection,
+    OBJECT_OT_move_to_active_object_collection,
+)
 from .transforms import (
     OBJECT_OT_add_copy_transforms_constraint,
     OBJECT_OT_copy_transforms_no_constraint,

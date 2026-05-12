@@ -12,6 +12,7 @@ import bpy
 
 from . operators import (
     OBJECT_OT_move_to_active_collection,
+    OBJECT_OT_move_to_active_object_collection,
     OBJECT_OT_add_copy_transforms_constraint,
     OBJECT_OT_copy_transforms_no_constraint,
     OBJECT_OT_reset_transforms,
@@ -27,6 +28,7 @@ from .panels import (
 
 classes = (
     OBJECT_OT_move_to_active_collection,
+    OBJECT_OT_move_to_active_object_collection,
     OBJECT_OT_add_copy_transforms_constraint,
     OBJECT_OT_copy_transforms_no_constraint,
     OBJECT_OT_reset_transforms,

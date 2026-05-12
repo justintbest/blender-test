@@ -11,3 +11,4 @@ class VIEW3D_PT_move_to_active_collection(bpy.types.Panel):
         active_coll = context.view_layer.active_layer_collection.collection
         self.layout.label(text=f"Active: {active_coll.name}")
         self.layout.operator("object.move_to_active_collection")
+        self.layout.operator("object.move_to_active_object_collection")
