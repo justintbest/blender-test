@@ -8,6 +8,8 @@ bl_info = {
     "category": "3D View",
 }
 
+import bpy
+
 from . operators import (
     OBJECT_OT_move_to_active_collection,
     OBJECT_OT_add_copy_transforms_constraint,
