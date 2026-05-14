@@ -41,7 +41,7 @@ class OBJECT_OT_gp_to_mesh(bpy.types.Operator):
                 if len(pts) < 2:
                     continue
 
-                verts = [bm.verts.new(world_matrix @ p.co) for p in pts]
+                verts = [bm.verts.new(p.co) for p in pts]
 
                 for j in range(len(verts) - 1):
                     bm.edges.new((verts[j], verts[j + 1]))
@@ -69,6 +69,7 @@ class OBJECT_OT_gp_to_mesh(bpy.types.Operator):
         new_obj = bpy.data.objects.new(gp_obj.name, mesh)
         for col in gp_collections:
             col.objects.link(new_obj)
+        new_obj.matrix_world = world_matrix
 
         bpy.data.objects.remove(gp_obj, do_unlink=True)
 
