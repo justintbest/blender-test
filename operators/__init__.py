@@ -9,5 +9,4 @@ from .transforms import (
 )
 from .mesh import MESH_OT_set_crease_one, MESH_OT_set_crease_zero
 from .cleanup import BEST_OT_remap_duplicates, OBJECT_OT_make_single_user_quick
-from .object_utils import OBJECT_OT_flip_x
-from .gp_to_mesh import OBJECT_OT_gp_to_mesh
+from .object_utils import OBJECT_OT_flip_x, OBJECT_OT_gp_to_mesh
