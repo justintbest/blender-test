@@ -9,3 +9,6 @@ class VIEW3D_PT_best_objects(bpy.types.Panel):
 
     def draw(self, context):
         self.layout.operator("object.flip_x")
+        self.layout.operator("object.gp_to_mesh")
+        self.layout.operator("object.uv_active_quads")
+        self.layout.operator("object.uv_active_quads_full")
