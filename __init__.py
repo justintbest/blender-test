@@ -21,6 +21,9 @@ from . operators import (
     BEST_OT_remap_duplicates,
     OBJECT_OT_make_single_user_quick,
     OBJECT_OT_flip_x,
+    OBJECT_OT_gp_to_mesh,
+    OBJECT_OT_uv_active_quads,
+    OBJECT_OT_uv_active_quads_full,
 )
 from .panels import (
     VIEW3D_PT_move_to_active_collection,
@@ -39,6 +42,9 @@ classes = (
     BEST_OT_remap_duplicates,
     OBJECT_OT_make_single_user_quick,
     OBJECT_OT_flip_x,
+    OBJECT_OT_gp_to_mesh,
+    OBJECT_OT_uv_active_quads,
+    OBJECT_OT_uv_active_quads_full,
     VIEW3D_PT_move_to_active_collection,
     VIEW3D_PT_scene_custom_props_filtered,
     VIEW3D_PT_best_objects,
