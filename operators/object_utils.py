@@ -13,6 +13,22 @@ class OBJECT_OT_flip_x(bpy.types.Operator):
         return {'FINISHED'}
 
 
+class OBJECT_OT_flip_camera_x(bpy.types.Operator):
+    bl_idname = "object.flip_camera_x"
+    bl_label = "Flip Camera X"
+    bl_description = "Flip the X scale of the active scene camera"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    @classmethod
+    def poll(cls, context):
+        return context.scene.camera is not None
+
+    def execute(self, context):
+        cam = context.scene.camera
+        cam.scale.x *= -1
+        return {'FINISHED'}
+
+
 class OBJECT_OT_gp_to_mesh(bpy.types.Operator):
     bl_idname = "object.gp_to_mesh"
     bl_label = "GP to Mesh"
