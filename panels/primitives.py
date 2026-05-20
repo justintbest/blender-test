@@ -13,3 +13,4 @@ class VIEW3D_PT_best_primitives(bpy.types.Panel):
         layout.operator("object.add_single_vertex")
         layout.operator("object.add_single_plane")
         layout.operator("object.add_single_cube")
+        layout.operator("object.add_gp_stroke")

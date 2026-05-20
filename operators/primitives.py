@@ -3,8 +3,8 @@ import bpy
 
 class OBJECT_OT_add_single_vertex(bpy.types.Operator):
     bl_idname = "object.add_single_vertex"
-    bl_label = "Single Vertex"
-    bl_description = "Add a single vertex at the 3D cursor"
+    bl_label = "Add Vertex"
+    bl_description = "Add a vertex at the 3D cursor"
     bl_options = {'REGISTER', 'UNDO'}
 
     def execute(self, context):
@@ -22,7 +22,7 @@ class OBJECT_OT_add_single_vertex(bpy.types.Operator):
 
 class OBJECT_OT_add_single_plane(bpy.types.Operator):
     bl_idname = "object.add_single_plane"
-    bl_label = "Single Plane"
+    bl_label = "Add Plane"
     bl_description = "Add a plane at the 3D cursor"
     bl_options = {'REGISTER', 'UNDO'}
 
@@ -33,10 +33,37 @@ class OBJECT_OT_add_single_plane(bpy.types.Operator):
 
 class OBJECT_OT_add_single_cube(bpy.types.Operator):
     bl_idname = "object.add_single_cube"
-    bl_label = "Single Cube"
+    bl_label = "Add Cube"
     bl_description = "Add a cube at the 3D cursor"
     bl_options = {'REGISTER', 'UNDO'}
 
     def execute(self, context):
         bpy.ops.mesh.primitive_cube_add(location=context.scene.cursor.location)
+        return {'FINISHED'}
+
+
+class OBJECT_OT_add_gp_stroke(bpy.types.Operator):
+    bl_idname = "object.add_gp_stroke"
+    bl_label = "Add Grease Pencil"
+    bl_description = "Add a 2m straight grease pencil stroke centered on the 3D cursor"
+    bl_options = {'REGISTER', 'UNDO'}
+
+    def execute(self, context):
+        gp_data = bpy.data.grease_pencils.new("GPStroke")
+        gp_obj = bpy.data.objects.new("GPStroke", gp_data)
+        gp_obj.location = context.scene.cursor.location.copy()
+        context.collection.objects.link(gp_obj)
+
+        layer = gp_data.layers.new("Layer")
+        frame = layer.frames.new(context.scene.frame_current)
+
+        stroke = frame.strokes.new()
+        stroke.display_mode = '3DSPACE'
+        stroke.points.add(count=2)
+        stroke.points[0].co = (-1.0, 0.0, 0.0)
+        stroke.points[1].co = (1.0, 0.0, 0.0)
+
+        bpy.ops.object.select_all(action='DESELECT')
+        gp_obj.select_set(True)
+        context.view_layer.objects.active = gp_obj
         return {'FINISHED'}
