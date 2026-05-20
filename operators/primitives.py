@@ -54,6 +54,13 @@ class OBJECT_OT_add_gp_stroke(bpy.types.Operator):
         gp_obj.location = context.scene.cursor.location.copy()
         context.collection.objects.link(gp_obj)
 
+        mat = bpy.data.materials.new("GP Black")
+        bpy.data.materials.create_gpencil_data(mat)
+        mat.grease_pencil.show_stroke = True
+        mat.grease_pencil.color = (0.0, 0.0, 0.0, 1.0)
+        mat.grease_pencil.show_fill = False
+        gp_data.materials.append(mat)
+
         layer = gp_data.layers.new("Layer")
         frame = layer.frames.new(context.scene.frame_current)
 
@@ -61,6 +68,7 @@ class OBJECT_OT_add_gp_stroke(bpy.types.Operator):
         drawing = frame.drawing
         drawing.add_strokes([2])
         stroke = drawing.strokes[0]
+        stroke.material_index = 0
         stroke.points[0].position = (-1.0, 0.0, 0.0)
         stroke.points[1].position = (1.0, 0.0, 0.0)
 
