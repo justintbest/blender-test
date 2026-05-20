@@ -25,11 +25,15 @@ from . operators import (
     OBJECT_OT_gp_to_mesh,
     OBJECT_OT_uv_active_quads,
     OBJECT_OT_uv_active_quads_full,
+    OBJECT_OT_add_single_vertex,
+    OBJECT_OT_add_single_plane,
+    OBJECT_OT_add_single_cube,
 )
 from .panels import (
     VIEW3D_PT_move_to_active_collection,
     VIEW3D_PT_scene_custom_props_filtered,
     VIEW3D_PT_best_objects,
+    VIEW3D_PT_best_primitives,
 )
 
 classes = (
@@ -47,9 +51,13 @@ classes = (
     OBJECT_OT_gp_to_mesh,
     OBJECT_OT_uv_active_quads,
     OBJECT_OT_uv_active_quads_full,
+    OBJECT_OT_add_single_vertex,
+    OBJECT_OT_add_single_plane,
+    OBJECT_OT_add_single_cube,
     VIEW3D_PT_move_to_active_collection,
     VIEW3D_PT_scene_custom_props_filtered,
     VIEW3D_PT_best_objects,
+    VIEW3D_PT_best_primitives,
 )
 
 def register():
